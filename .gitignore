@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Dependency directories
+node_modules/
+.pnp
+.pnp.js
+package-lock.json
+yarn.lock
+package.json
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
