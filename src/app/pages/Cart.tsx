@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../cart/CartContext";
 import { Link } from "react-router-dom";
+import { Navbar } from "../components/organisms/Navbar";
 
 export function Cart() {
     const context = useContext(CartContext);
@@ -14,6 +15,7 @@ export function Cart() {
     if (items.length === 0) {
         return (
             <div className="cart-empty">
+                <Navbar />
                 <h2>Your Cart is Empty</h2>
                 <Link to="/">Continue Shopping</Link>
             </div>

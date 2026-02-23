@@ -3,9 +3,14 @@ import { ProductPage } from "./pages/ProductPage";
 import { HomePage } from "./pages/HomePage";
 import { Cart } from "./pages/Cart";
 
+
 export const router = createBrowserRouter([
     {
         path: "/",
+        element: <HomePage />,
+    },
+    {
+        path: "/product/category/:category",
         element: <HomePage />,
     },
     {
@@ -13,7 +18,7 @@ export const router = createBrowserRouter([
         element: <ProductPage />,
     },
     {
-        path: "/panier",
+        path: "/cart",
         element: <Cart />,
-    }
+    },
 ]);

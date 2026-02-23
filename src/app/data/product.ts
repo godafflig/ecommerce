@@ -1,9 +1,11 @@
+import type { Categorie } from "./categorie";
+
 export type Product = {
     id: number;
     name: string;
     price: number;
     description: string;
-    category: string;
+    category: Categorie["name"];
 };
 
 export const products: Product[] = [
