@@ -1,4 +1,5 @@
 import { Input } from "../atoms/Input";
+import "./CartItems.css";
 
 type CartItemsProps = {
     items: CartItem[];
