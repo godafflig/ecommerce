@@ -3,6 +3,7 @@ import { products } from "../data/product";
 import { useContext, useState } from "react";
 import { CartContext } from "../cart/CartContext";
 import { Navbar } from "../components/organisms/Navbar";
+import { Input } from "../components/atoms/Input";
 
 export function ProductPage() {
     const { productId } = useParams();
@@ -33,11 +34,11 @@ export function ProductPage() {
             <p className="price">${product.price.toFixed(2)}</p>
             <p className="category">Category: {product.category}</p>
             <div>
-                <input
+                <Input
                     type="number"
                     min="1"
                     value={quantity}
-                    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                    onChange={(e) => setQuantity(Math.max(1, parseInt(e) || 1))}
                 />
                 <button onClick={handleAddToCart}>Add to Cart</button>
             </div>

@@ -1,0 +1,37 @@
+.app-input {
+  width: 100%;
+  max-width: 260px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 1px 2px var(--color-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.app-input[type="number"] {
+  max-width: 110px;
+}
+
+.app-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.app-input:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.app-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.app-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

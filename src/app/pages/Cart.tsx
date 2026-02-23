@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../cart/CartContext";
 import { Link } from "react-router-dom";
 import { Navbar } from "../components/organisms/Navbar";
+import { Input } from "../components/atoms/Input";
 
 export function Cart() {
     const context = useContext(CartContext);
@@ -24,6 +25,7 @@ export function Cart() {
 
     return (
         <div className="cart">
+            <Navbar />
             <h2>Shopping Cart</h2>
             <table className="cart-table">
                 <thead>
@@ -41,14 +43,14 @@ export function Cart() {
                             <td>{item.product.name}</td>
                             <td>${item.product.price.toFixed(2)}</td>
                             <td>
-                                <input
+                                <Input
                                     type="number"
                                     min="1"
                                     value={item.quantity}
                                     onChange={(e) =>
                                         updateQuantity(
                                             item.product.id,
-                                            parseInt(e.target.value) || 1
+                                            parseInt(e) || 1
                                         )
                                     }
                                 />
