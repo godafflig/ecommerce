@@ -13,7 +13,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [user, setUser] = useState<string | null>(null);
 
   const login = (username: string, password: string) => {
-    // utilisateur "en dur" pour commencer
     if (username === "admin" && password === "password") {
       setUser(username);
       return true; // login réussi
