@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../cart/CartContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import { Navbar } from "../components/organisms/Navbar";
 import { CartItems } from "../components/organisms/CartItems";
 import { Button } from "../components/atoms/Button";
@@ -8,6 +8,9 @@ import { Button } from "../components/atoms/Button";
 export function Cart() {
     const navigate = useNavigate();
     const context = useContext(CartContext);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
     if (!context) {
         return <div>Cart not available</div>;
@@ -25,6 +28,13 @@ export function Cart() {
         );
     }
 
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setIsSubmitted(true);
+        setName(name);
+        setEmail(email);
+    }
+
     return (
         <div className="cart">
             <Navbar />
@@ -39,6 +49,30 @@ export function Cart() {
                 <Button onClick={() => navigate("/")}>Continue Shopping</Button>
                 <Button className="checkout-btn">Checkout</Button>
             </div>
+
+            <form method="POST" onSubmit={handleSubmit}>
+                <input
+                    name="nom"
+                    placeholder="Nom"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                    name="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <button type="submit">Envoyer</button>
+            </form>
+
+            {isSubmitted && (
+                <div id="Message" className="form-result">
+                    <p>Merci pour votre commande {name}</p>
+                    <p>Nous vous contacterons à {email}</p>
+                    ✅ Votre formulaire a bien été envoyé !
+                </div>
+            )}
         </div>
     );
 }

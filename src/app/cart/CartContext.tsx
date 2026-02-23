@@ -22,6 +22,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [items, setItems] = useState<CartItem[]>([]);
     useEffect(() => {
     console.log("Items mis à jour :", items);
+
 }, [items]);
 
     const addToCart = (product: Product, quantity: number = 1) => {
@@ -32,7 +33,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
             if (existingItem) {
 
-                // Si le produit existe déjà, augmenter la quantité
                 return prevItems.map((item) =>
                     item.product.id === product.id
                         ? { ...item, quantity: item.quantity + quantity }
