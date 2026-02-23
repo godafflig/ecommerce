@@ -31,7 +31,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             const existingItem = prevItems.find((item) => item.product.id === product.id);
 
             if (existingItem) {
-                console.log("test2");
 
                 // Si le produit existe déjà, augmenter la quantité
                 return prevItems.map((item) =>
