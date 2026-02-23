@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { products } from "../data/product";
 import { useContext, useState } from "react";
 import { CartContext } from "../cart/CartContext";
+import { Navbar } from "../components/organisms/Navbar";
 
 export function ProductPage() {
     const { productId } = useParams();
@@ -26,6 +27,7 @@ export function ProductPage() {
 
     return (
         <div>
+            <Navbar />
             <h1>{product.name}</h1>
             <p>{product.description}</p>
             <p className="price">${product.price.toFixed(2)}</p>
