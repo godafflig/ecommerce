@@ -1,22 +1,28 @@
+import './Button.css';
+
+type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'info' | 'ghost';
+
 type ButtonProps = {
     children: React.ReactNode;
     onClick?: () => void;
-    variant?: 'primary' | 'secondary' | 'danger';
+    variant?: ButtonVariant;
     disabled?: boolean;
     type?: 'button' | 'submit' | 'reset';
+    className?: string;
 };
 export function Button({
     children,
     onClick,
-    variant = 'primary',
+    variant = 'secondary',
     disabled = false,
     type = 'button',
+    className = '',
 }: ButtonProps) {
     return (
         <button
             type={type}
             disabled={disabled}
-            className={`btn btn--${variant}`}
+            className={`btn btn--${variant} ${className}`}
             onClick={onClick}
         >
             {children}
