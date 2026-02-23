@@ -4,6 +4,8 @@ import { Form, Link, useNavigate } from "react-router-dom";
 import { Navbar } from "../components/organisms/Navbar";
 import { CartItems } from "../components/organisms/CartItems";
 import { Button } from "../components/atoms/Button";
+import { Input } from "../components/atoms/Input";
+
 
 export function Cart() {
     const navigate = useNavigate();
@@ -51,17 +53,19 @@ export function Cart() {
             </div>
 
             <form method="POST" onSubmit={handleSubmit}>
-                <input
+                <Input
+                    type="text"
                     name="nom"
                     placeholder="Nom"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setName(e)}
                 />
-                <input
+                <Input
+                    type="email"
                     name="email"
                     placeholder="Email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e)}
                 />
                 <button type="submit">Envoyer</button>
             </form>
