@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
         element: <HomePage />,
     },
     {
-        path: "/product/:category",
+        path: "/product/category/:category",
         element: <HomePage />,
     },
     {
