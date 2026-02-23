@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Input } from "../components/atoms/Input";
 
 export const LoginPage = () => {
     const [username, setUsername] = useState("");
@@ -23,17 +24,17 @@ export const LoginPage = () => {
         <div className="login-page">
             <h1>Connexion</h1>
             <form onSubmit={handleSubmit}>
-                <input
+                <Input
                     type="text"
                     placeholder="Utilisateur"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => setUsername(e)}
                 />
-                <input
+                <Input
                     type="password"
                     placeholder="Mot de passe"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e)}
                 />
                 <button type="submit">Se connecter</button>
             </form>
