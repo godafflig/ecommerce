@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../cart/CartContext";
 import { Link } from "react-router-dom";
 import { Navbar } from "../components/organisms/Navbar";
-import { Input } from "../components/atoms/Input";
+import { CartItems } from "../components/organisms/CartItems";
 
 export function Cart() {
     const context = useContext(CartContext);
@@ -27,44 +27,11 @@ export function Cart() {
         <div className="cart">
             <Navbar />
             <h2>Shopping Cart</h2>
-            <table className="cart-table">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {items.map((item) => (
-                        <tr key={item.product.id}>
-                            <td>{item.product.name}</td>
-                            <td>${item.product.price.toFixed(2)}</td>
-                            <td>
-                                <Input
-                                    type="number"
-                                    min="1"
-                                    value={item.quantity}
-                                    onChange={(e) =>
-                                        updateQuantity(
-                                            item.product.id,
-                                            parseInt(e) || 1
-                                        )
-                                    }
-                                />
-                            </td>
-                            <td>${(item.product.price * item.quantity).toFixed(2)}</td>
-                            <td>
-                                <button onClick={() => removeFromCart(item.product.id)}>
-                                    Remove
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <CartItems
+                items={items.map(item => ({ ...item, product: { ...item.product, id: String(item.product.id) } }))}
+                onUpdateQuantity={(productId, quantity) => updateQuantity(Number(productId), quantity)}
+                onRemoveFromCart={(productId) => removeFromCart(Number(productId))}
+            />
             <div className="cart-summary">
                 <h3>Total: ${getTotalPrice().toFixed(2)}</h3>
                 <Link to="/">Continue Shopping</Link>
