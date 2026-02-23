@@ -33,8 +33,8 @@ export function Navbar() {
                 >
                     {theme === 'light' ? '🌙' : '☀️'}
                 </button>
-                <Button onClick={() => navigate("/cart")} variant="primary" ><a href="/cart">Panier
-                </a></Button>
+                <Button onClick={() => navigate("/cart")} variant="primary" >Panier
+                </Button>
             </div>
 
         </nav>
