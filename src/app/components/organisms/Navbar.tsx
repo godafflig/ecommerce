@@ -1,7 +1,9 @@
 import { Button } from "../atoms/Button";
+import { useTheme } from "../../theme/ThemeContext";
 import "./Navbar.css";
 
 export function Navbar() {
+    const { theme, toggleTheme } = useTheme();
     
     return (
         <nav className="navbar">
@@ -12,7 +14,14 @@ export function Navbar() {
                 </ul>
             </div>
             <div className="navbar__panier">
-                <Button variant="primary">Panier</Button>
+                <button 
+                    className="theme-toggle" 
+                    onClick={toggleTheme}
+                    title={`Passer au thème ${theme === 'light' ? 'sombre' : 'clair'}`}
+                >
+                    {theme === 'light' ? '🌙' : '☀️'}
+                </button>
+                <Button variant="primary" ><a href="/panier">Panier</a></Button>
             </div>
             
         </nav>
