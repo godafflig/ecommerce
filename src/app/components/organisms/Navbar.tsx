@@ -1,10 +1,12 @@
 import { Button } from "../atoms/Button";
+import { useTheme } from "../../theme/ThemeContext";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 
 
 export function Navbar() {
     const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <nav className="navbar">
@@ -24,8 +26,15 @@ export function Navbar() {
                 </ul>
             </div>
             <div className="navbar__panier">
-                <Button onClick={() => navigate("/cart")} variant="primary">Panier
-                </Button>
+                <button 
+                    className="theme-toggle" 
+                    onClick={toggleTheme}
+                    title={`Passer au thème ${theme === 'light' ? 'sombre' : 'clair'}`}
+                >
+                    {theme === 'light' ? '🌙' : '☀️'}
+                </button>
+                <Button onClick={() => navigate("/cart")} variant="primary" ><a href="/panier">Panier
+                </a></Button>
             </div>
 
         </nav>
