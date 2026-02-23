@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../components/atoms/Input";
+import { Button } from "../components/atoms/Button";
 
 export const LoginPage = () => {
     const [username, setUsername] = useState("");
@@ -36,7 +37,7 @@ export const LoginPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e)}
                 />
-                <button type="submit">Se connecter</button>
+                <Button type="submit" variant="secondary">Se connecter</Button>
             </form>
             {error && <p style={{ color: "red" }}>{error}</p>}
         </div>

@@ -13,16 +13,16 @@ export function Navbar() {
             <div className="navbar__container">
                 <h1 className="navbar__title">E-Commerce Store</h1>
                 <ul className="navbar__links">
-                    <li><a href="/">Home</a></li>
+                    <li><Button onClick={() => navigate("/")} >Home</Button></li>
                 </ul>
             </div>
             <div className="navbar__container">
                 <h1 className="navbar__title">Catégorie</h1>
                 <ul className="navbar__links">
-                    <Link to="/product/category/Electronics">Electronics</Link>
-                    <Link to="/product/category/Clothing">Clothing</Link>
-                    <Link to="/product/category/Books">Books</Link>
-                    <Link to="/product/category/Kitchen">Home & Kitchen</Link>
+                    <Button onClick={() => navigate("/product/category/Electronics")} variant="ghost">Electronics</Button>
+                    <Button onClick={() => navigate("/product/category/Clothing")} variant="ghost">Clothing</Button>
+                    <Button onClick={() => navigate("/product/category/Books")} variant="ghost">Books</Button>
+                    <Button onClick={() => navigate("/product/category/Kitchen")} variant="ghost">Home & Kitchen</Button>
                 </ul>
             </div>
             <div className="navbar__panier">
